@@ -25,6 +25,7 @@ let userSchema = new Schema({
   },
   securityCode: {
     type: Number
+    //add required
   }
 });
 
