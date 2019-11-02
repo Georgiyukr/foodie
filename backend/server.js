@@ -13,9 +13,7 @@ let MongoStore = require("connect-mongo")(session);
 let passport = require("passport");
 let LocalStrategy = require("passport-local").Strategy;
 let models = require("./models/schemas");
-// require user schema from models
 const User = models.User;
-
 // MONGO DB CONNECTION
 if (!process.env.MONGODB_URI) {
   throw new Error(
@@ -107,24 +105,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use("/", dbAuth(passport, hash));
-app.use("/", dbIndex());
-
-//register a new user in database
-app.post("/register", function(req, res) {
-  let newUser = new User({
-    name: req.body.name,
-    username: req.body.username,
-    password: req.body.password
-  });
-  newUser
-    .save()
-    .then(response => {
-      res.json({ success: true, user: newUser });
-    })
-    .catch(error => {
-      console.log("ERROR IN POST /REGISTER");
-    });
-});
+//app.use("/", dbIndex());
 
 app.listen(3000, () => {
   console.log("Server for Foodie App listening on port 3000!");
