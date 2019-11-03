@@ -22,7 +22,7 @@ module.exports = function(passport, hash) {
       });
   });
 
-  // user login with authentication
+  // user login  with authentication
   router.post("/login", passport.authenticate("local"), function(req, res) {
     if (req.user) {
       console.log(`User: ${req.user.username} is logged in!`);
@@ -37,7 +37,7 @@ module.exports = function(passport, hash) {
     req.logout();
     if (!req.user) {
       res.json({ success: true });
-    } else res.json({ success: true });
+    } else res.json({ success: false });
   });
 
   return router;

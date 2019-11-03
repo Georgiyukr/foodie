@@ -14,6 +14,9 @@ let passport = require("passport");
 let LocalStrategy = require("passport-local").Strategy;
 let models = require("./models/schemas");
 const User = models.User;
+
+let cors = require("cors");
+app.use(cors());
 // MONGO DB CONNECTION
 if (!process.env.MONGODB_URI) {
   throw new Error(
@@ -107,8 +110,8 @@ app.use(passport.session());
 app.use("/", dbAuth(passport, hash));
 //app.use("/", dbIndex());
 
-app.listen(3000, () => {
-  console.log("Server for Foodie App listening on port 3000!");
+app.listen(8080, () => {
+  console.log("Server for Foodie App listening on port 8080!");
 });
 
 module.exports = app;
