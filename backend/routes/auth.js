@@ -10,7 +10,9 @@ module.exports = function(passport, hash) {
     let newUser = new User({
       name: req.body.name,
       username: req.body.username,
-      password: hash(req.body.password)
+      password: hash(req.body.password),
+      creditCardNumber: hash(req.body.creditCardNumber),
+      securityCode: hash(req.body.securityCode)
     });
     newUser
       .save()

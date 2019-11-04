@@ -16,7 +16,7 @@ let models = require("./models/schemas");
 const User = models.User;
 
 let cors = require("cors");
-app.use(cors());
+app.use(cors({ credentials: true, origin: true }));
 // MONGO DB CONNECTION
 if (!process.env.MONGODB_URI) {
   throw new Error(

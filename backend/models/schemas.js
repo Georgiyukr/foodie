@@ -16,16 +16,12 @@ let userSchema = new Schema({
     required: true
   },
   creditCardNumber: {
-    type: Number
-    //add required
-  },
-  expirationDate: {
-    type: Date
-    //add required
+    type: String,
+    required: true
   },
   securityCode: {
-    type: Number
-    //add required
+    type: String,
+    required: true
   }
 });
 

@@ -14,6 +14,9 @@ export class Login extends Component {
     event.preventDefault();
     this.login();
   }
+  onClick() {
+    this.props.history.push("/register");
+  }
 
   // user login
   login() {
@@ -51,22 +54,41 @@ export class Login extends Component {
   render() {
     return (
       <div>
-        <h1>Login</h1>
-        <form onSubmit={event => this.onSubmit(event)}>
-          Username:
-          <input
-            type="text"
-            value={this.state.username}
-            onChange={event => this.handleChange("username", event)}
-          />
-          Password:
-          <input
-            type="text"
-            value={this.state.password}
-            onChange={event => this.handleChange("password", event)}
-          />
-          <input type="submit" value="Submit" />
-        </form>
+        <div className="nav-bar-login">
+          <p1 className="logo">Foodie</p1>
+        </div>
+        <div className="form">
+          <h1 className="loginTitle">Login</h1>
+          <form onSubmit={event => this.onSubmit(event)}>
+            <p>
+              <input
+                placeholder="enter your username ..."
+                className="input"
+                type="text"
+                value={this.state.username}
+                onChange={event => this.handleChange("username", event)}
+              />
+            </p>
+            <p>
+              <input
+                placeholder="enter your password ..."
+                className="input"
+                type="text"
+                value={this.state.password}
+                onChange={event => this.handleChange("password", event)}
+              />
+            </p>
+            <p className="login-buttons">
+              <input className="login-submit" type="submit" value="Submit" />
+            </p>
+          </form>
+          <button
+            onClick={this.onClick.bind(this)}
+            className="login-to-register login-submit"
+          >
+            Register
+          </button>
+        </div>
       </div>
     );
   }

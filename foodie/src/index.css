@@ -11,3 +11,61 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.nav-bar-login {
+  background-color: #4eb94b;
+  width: 100%;
+  height: 50px;
+  box-shadow: 0 0 5px #000;
+}
+
+.logo {
+  color: white;
+  font-weight: bold;
+  font-size: 35px;
+  margin-left: 50px;
+}
+
+.form {
+  text-align: center;
+  margin-top: 3%;
+  display: block;
+}
+
+.loginTitle {
+  color: #494949;
+  margin-bottom: 2%;
+}
+
+.input {
+  width: 19%;
+  border: none;
+  border-bottom: solid;
+  border-color: #4eb94b;
+  outline: none;
+  margin-bottom: 0.8%;
+}
+
+.login-submit {
+  background-color: #4eb94b;
+  width: 7%;
+  color: white;
+  border: none;
+  font-weight: bold;
+  font-size: 18px;
+  outline: none;
+}
+
+.login-submit:hover {
+  background-color: #3b8e39;
+}
+
+.login-to-register {
+  background-color: #0c5f09 !important;
+  text-align: center;
+  outline: none !important;
+}
+
+.login-to-register:hover {
+  background-color: #3b8e39 !important;
+}
