@@ -1,23 +1,6 @@
 import React, { Component, useRef, useEffect } from "react";
+import { Link } from "react-router-dom";
 
-// import axios from "axios";
-
-// function useHover() {
-//   const ref = useRef();
-//   const [hovered, setHovered] = useState(false);
-
-//   const enter = () => setHovered(true);
-//   const leave = () => setHovered(false);
-//   useEffect(() => {
-//     ref.current.addEventListener("mouseenter", enter);
-//     ref.current.addEventListener("mouseleave", leave);
-//     return () => {
-//       ref.current.removeEventListener("mouseenter", enter);
-//       ref.current.removeEventListener("mouseleave", leave);
-//     };
-//   }, [ref]);
-//   return [ref, hovered];
-// }
 export class Register extends Component {
   constructor(props) {
     super(props);
@@ -91,22 +74,22 @@ export class Register extends Component {
   render() {
     // const [ref, hovered] = useHover();
 
-    let loginStyle;
-    if (this.state.loginHover) {
-      loginStyle = styles.loginLink;
-    } else {
-      loginStyle = styles.loginLink;
-    }
+    // let loginStyle;
+    // if (this.state.loginHover) {
+    //   loginStyle = styles.loginLink;
+    // } else {
+    //   loginStyle = styles.loginLink;
+    // }
 
     let submit;
     if (this.state.submitHover) {
       submit = {
-        backgroundColor: "#3b8e39",
+        backgroundColor: "#F3F3F3",
         width: "7%",
         color: "white",
         border: "none",
         fontWeight: "bold",
-        fontSize: 18,
+        fontSize: "18px",
         outline: "none"
       };
     } else {
@@ -125,18 +108,18 @@ export class Register extends Component {
       <div>
         <div style={styles.navBar}>
           <p1 style={styles.logo}>Foodie</p1>
-          <a
-            style={loginStyle}
-            onMouseEnter={() =>
-              this.toggleHover("loginHover", this.state.loginHover)
-            }
-            onMouseLeave={() =>
-              this.toggleHover("loginHover", this.state.loginHover)
-            }
-            href="/login"
+          <Link
+            className="nav-bar-links register-login-btn"
+            // onMouseEnter={() =>
+            //   this.toggleHover("loginHover", this.state.loginHover)
+            // }
+            // onMouseLeave={() =>
+            //   this.toggleHover("loginHover", this.state.loginHover)
+            // }
+            to="/login"
           >
             Login
-          </a>
+          </Link>
         </div>
         <div style={styles.form}>
           <h1 style={styles.register}>Registration</h1>
@@ -217,15 +200,15 @@ const styles = {
     boxShadow: "0 0 5px #000"
   },
 
-  loginLink: {
-    color: "white",
-    float: "right",
-    marginRight: "50px",
-    marginTop: "10px",
-    fontWeight: "bold",
-    fontSize: "18px",
-    textDecoration: "none"
-  },
+  // loginLink: {
+  //   color: "white",
+  //   float: "right",
+  //   marginRight: "50px",
+  //   marginTop: "10px",
+  //   fontWeight: "bold",
+  //   fontSize: "18px",
+  //   textDecoration: "none"
+  // },
 
   logo: {
     color: "white",

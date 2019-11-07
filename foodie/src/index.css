@@ -69,3 +69,84 @@ code {
 .login-to-register:hover {
   background-color: #3b8e39 !important;
 }
+
+.nav-bar-links {
+  float: right;
+  margin-right: 50px;
+  margin-top: 10px;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.logout-btn {
+  color: white;
+}
+
+.logout-btn:hover {
+  text-decoration: none;
+  color: rgb(243, 243, 243);
+}
+
+.my-payments {
+  color: white;
+  margin-right: 10px !important;
+}
+
+.my-payments:hover {
+  text-decoration: none;
+  color: rgb(243, 243, 243);
+}
+
+.register-login-btn {
+  color: white;
+}
+.register-login-btn:hover {
+  text-decoration: none;
+  color: rgb(243, 243, 243);
+}
+
+.logo:hover {
+  color: white;
+  text-decoration: none;
+}
+
+.qr-square {
+  width: 300px;
+  height: 300px;
+  text-align: center;
+  margin-left: 40%;
+}
+
+.qr-button {
+  margin-left: 45%;
+  margin-top: 2%;
+  width: 10%;
+  border: none;
+  background-color: #1eaa1a;
+  outline: none !important;
+  color: white;
+  font-weight: bold;
+  box-shadow: 0 0 4px #000;
+}
+
+.qr-button:hover {
+  background-color: #3b8e39;
+}
+
+.home-order-button {
+  margin-left: 45%;
+  margin-top: 2%;
+  margin-bottom: 3%;
+  width: 10%;
+  border: none;
+  outline: none !important;
+  color: white;
+  font-weight: bold;
+  background-color: #1eaa1a;
+  box-shadow: 0 0 4px #000;
+}
+
+.home-order-button:hover {
+  background-color: #3b8e39;
+}

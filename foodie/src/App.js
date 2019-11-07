@@ -5,16 +5,21 @@ import "./App.css";
 import Home from "./components/Home";
 import Register from "./components/Register";
 import Login from "./components/Login";
-
+import MyPayments from "./components/MyPayments";
+import Nav from "./components/Nav";
+import Menu from "./components/Menu";
 function App() {
   return (
     <Router>
       <div className="App">
         {/*Maybe add className here and Navbar element*/}
+        {/* <Nav /> */}
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/login" exact component={Login} />
           <Route path="/register" exact component={Register} />
+          <Route path="/payment-history" exact component={MyPayments} />
+          <Route path="/menu" exact component={Menu} />
         </Switch>
       </div>
     </Router>

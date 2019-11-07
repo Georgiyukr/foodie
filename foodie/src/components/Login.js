@@ -31,7 +31,7 @@ export class Login extends Component {
       headers: {
         "Content-Type": "application/json"
       },
-      credentials: "same-origin",
+      credentials: "include",
       redirect: "follow",
       body: JSON.stringify({
         username: this.state.username,
@@ -43,7 +43,10 @@ export class Login extends Component {
         if (responseJson.success === true && responseJson.user) {
           console.log("USER LOGGEDIN", responseJson.user);
           this.setState({ username: "", password: "" });
-          this.props.history.push("/");
+          this.props.history.push({
+            pathname: "/",
+            state: { user: responseJson.user }
+          });
         }
       })
       .catch(err => {
@@ -73,7 +76,7 @@ export class Login extends Component {
               <input
                 placeholder="enter your password ..."
                 className="input"
-                type="text"
+                type="password"
                 value={this.state.password}
                 onChange={event => this.handleChange("password", event)}
               />
