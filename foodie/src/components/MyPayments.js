@@ -7,17 +7,7 @@ export class MyPayments extends Component {
       loggedIn: true
     };
   }
-  // componentDidMount() {
-  //   if (this.props.loggedIn) {
-  //     this.setState({ logged: true });
-  //   }
-  // }
-
-  // foodie() {
-  //   this.history.push({ pathname: "/", state: { loggedIn: true } });
-  // }
   render() {
-    console.log("Payment PROPS", this.props);
     return (
       <div>
         <Nav />

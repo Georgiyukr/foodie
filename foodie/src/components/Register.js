@@ -1,4 +1,4 @@
-import React, { Component, useRef, useEffect } from "react";
+import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
 export class Register extends Component {

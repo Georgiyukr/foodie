@@ -42,10 +42,18 @@ export class Login extends Component {
       .then(responseJson => {
         if (responseJson.success === true && responseJson.user) {
           console.log("USER LOGGEDIN", responseJson.user);
+          let user = responseJson.user;
           this.setState({ username: "", password: "" });
+          window.localStorage.setItem(
+            "user",
+            JSON.stringify({
+              name: user.name,
+              userid: user._id,
+              username: user.username
+            })
+          );
           this.props.history.push({
-            pathname: "/",
-            state: { user: responseJson.user }
+            pathname: "/"
           });
         }
       })

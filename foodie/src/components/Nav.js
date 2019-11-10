@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link, Route } from "react-router-dom";
+import { Link } from "react-router-dom";
 export class Nav extends Component {
   constructor(props) {
     super(props);
@@ -16,25 +16,19 @@ export class Nav extends Component {
     })
       .then(response => response.json())
       .then(responseJson => {
+        window.localStorage.removeItem("user");
         console.log(responseJson);
       })
       .catch(err => {
-        // console.log("from fetch", err);
         alert(err);
       });
   }
 
-  // foodie = () => {
-  //   this.props.logged(true);
-  // };
-
   render() {
-    console.log("NAV PROPS", this.props);
     return (
       <div>
         <div className="nav-bar-login">
           <Link to="/" className="logo">
-            {/* onClick={() => this.foodie()} */}
             Foodie
           </Link>
           <span className="nav-bar-links">

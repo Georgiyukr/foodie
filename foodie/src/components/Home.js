@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 import Nav from "./Nav";
 import QrReader from "react-qr-reader";
+
 export class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
       delay: 300,
-      result: "No result",
+      restaurantUsername: "",
+      tableNum: "",
       user: {
         name: "",
         userid: "",
@@ -20,8 +22,20 @@ export class Home extends Component {
 
   handleScan(data) {
     if (data) {
+      let split = data.split(" ");
       this.setState({
-        result: data
+        restaurantUsername: split[0],
+        tableNum: split[1]
+      });
+
+      this.props.history.push({
+        pathname: "/menu",
+        state: {
+          restaurantUsername: this.state.restaurantUsername,
+          tableNum: this.state.tableNum,
+          scanned: true,
+          isLoggedIn: true
+        }
       });
     }
   }
@@ -32,35 +46,30 @@ export class Home extends Component {
 
   //redirect to login page if user is not logged in
   componentDidMount() {
-    if (this.props.location.state) {
-      if (this.props.location.state.user) {
-        this.setState({
-          user: {
-            name: this.props.location.state.user.name,
-            userid: this.props.location.state.user._id,
-            username: this.props.location.state.user.username
-          },
-          isLoggedIn: true
-        });
-      }
+    const user = window.localStorage.getItem("user");
+    console.log(user);
+    if (user) {
+      this.setState({
+        user: {
+          name: user.name,
+          userid: user.userid,
+          username: user.username
+        },
+        isLoggedIn: true
+      });
     } else {
       this.props.history.push("/login");
     }
   }
-
-  // checkIfLogged = (navData) => {
-  //   this.setState({ isLoggedIn: navData });
-  // };
 
   qrShow() {
     this.setState({ scanned: true });
   }
 
   render() {
-    console.log("HOME", this.state.user);
+    // console.log("HOME", this.state.user);
     return (
       <div>
-        {/* <p1>Home</p1> */}
         <Nav />
         {this.state.scanned ? (
           <div>
@@ -73,7 +82,6 @@ export class Home extends Component {
                 onScan={this.handleScan}
                 style={{ width: "100%" }}
               />
-              <p>{this.state.result}</p>
             </div>
           </div>
         ) : (
