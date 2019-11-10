@@ -35,11 +35,11 @@ let userSchema = new Schema({
 });
 
 let restaurantSchema = new Schema({
-  name: {
+  restaurantName: {
     type: String,
     required: true
   },
-  username: {
+  restaurantUsername: {
     type: String,
     required: true
   },
@@ -48,10 +48,14 @@ let restaurantSchema = new Schema({
   },
   menu: {
     type: Array
+  },
+  password: {
+    type: String,
+    required: true
   }
 });
 
-let Restaurant = monggose.model("Restaurant", restaurantSchema);
+let Restaurant = mongoose.model("Restaurant", restaurantSchema);
 let User = mongoose.model("User", userSchema);
 
 module.exports = {

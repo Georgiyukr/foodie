@@ -108,7 +108,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use("/", dbAuth(passport, hash));
-//app.use("/", dbIndex());
+app.use("/", dbIndex(hash));
 
 app.listen(8080, () => {
   console.log("Server for Foodie App listening on port 8080!");
