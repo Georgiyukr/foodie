@@ -66,7 +66,7 @@ export class Login extends Component {
     return (
       <div>
         <div className="nav-bar-login">
-          <p1 className="logo">Foodie</p1>
+          <p className="logo">Foodie</p>
         </div>
         <div className="form">
           <h1 className="loginTitle">Login</h1>

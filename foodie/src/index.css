@@ -150,3 +150,8 @@ code {
 .home-order-button:hover {
   background-color: #3b8e39;
 }
+
+.menu-view {
+  text-align: center;
+  color: #494949;
+}
