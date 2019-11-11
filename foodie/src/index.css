@@ -188,13 +188,15 @@ code {
 .item {
   border: thin solid;
   border-color: #ecedef;
-  /* border-color: #d0ebcf; */
+  /* border-color: #ecedef; */
   width: 42%;
   height: 5.9em;
   margin-bottom: 2%;
   text-align: center;
   margin-left: auto;
   margin-right: auto;
+  display: block;
+  outline: none !important;
 }
 
 .item-name {
@@ -227,9 +229,13 @@ code {
   border: none;
   font-weight: bold;
   font-size: 18px;
-  outline: none;
+  outline: none !important;
 }
 
 .place-order-btn:hover {
   background-color: #3b8e39 !important;
+}
+
+.item:hover {
+  background-color: #f9fafc;
 }

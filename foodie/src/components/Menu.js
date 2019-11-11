@@ -9,9 +9,9 @@ export class Menu extends Component {
       tableNum: this.props.location.state.tableNum,
       menu: [],
       restaurantName: "",
-      restaurantUsername: "",
-      order: []
+      restaurantUsername: ""
     };
+    this.order = {};
   }
 
   componentDidMount() {
@@ -21,7 +21,7 @@ export class Menu extends Component {
       .then(response => response.json())
       .then(responseJson => {
         if (responseJson.success && responseJson.restaurant) {
-          console.log(responseJson.restaurant);
+          //console.log(responseJson.restaurant);
           let restaurant = responseJson.restaurant;
           this.setState({
             menu: restaurant.menu,
@@ -34,13 +34,28 @@ export class Menu extends Component {
         console.log("ERROR in FETCH /RESTAURANT", err);
       });
   }
+
+  itemSelect(name, price) {
+    console.log(name, price);
+    this.order[name] = price;
+  }
+
+  placeOrder() {
+    this.props.history.push({
+      pathname: "/",
+      state: {
+        order: this.order
+      }
+    });
+  }
+
   render() {
+    console.log("ORDER", this.order);
     return (
       <div>
         <Nav />
         <div className="menu-view">
           <h1 className="welcome">Welcome to {this.state.restaurantName}!</h1>
-          {/* <div className="table-sign">Your table is {this.state.tableNum}</div> */}
           <div className="menu-sign">Menu</div>
 
           <div className="menu-list">
@@ -50,11 +65,17 @@ export class Menu extends Component {
                 name={item.name}
                 description={item.description}
                 price={item.price}
+                itemSelect={() => this.itemSelect(item.name, item.price)}
               />
             ))}
           </div>
 
-          <button className="place-order-btn">Place Order</button>
+          <button
+            className="place-order-btn"
+            onClick={this.placeOrder.bind(this)}
+          >
+            Place Order
+          </button>
         </div>
       </div>
     );

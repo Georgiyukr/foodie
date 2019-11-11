@@ -15,7 +15,8 @@ export class Home extends Component {
         username: ""
       },
       isLoggedIn: false,
-      scanned: false
+      scanned: false,
+      order: {}
     };
     this.handleScan = this.handleScan.bind(this);
   }
@@ -60,6 +61,10 @@ export class Home extends Component {
     } else {
       this.props.history.push("/login");
     }
+
+    if (this.props.location.state) {
+      this.setState({ order: this.props.location.state.order });
+    }
   }
 
   qrShow() {
@@ -67,7 +72,7 @@ export class Home extends Component {
   }
 
   render() {
-    // console.log("HOME", this.state.user);
+    console.log("Order", this.state.order);
     return (
       <div>
         <Nav />
