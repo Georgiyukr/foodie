@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Nav from "./Nav";
+import FoodItem from "./FoodItem";
 
 export class Menu extends Component {
   constructor(props) {
@@ -9,7 +10,7 @@ export class Menu extends Component {
       menu: [],
       restaurantName: "",
       restaurantUsername: "",
-      order: {}
+      order: []
     };
   }
 
@@ -20,6 +21,7 @@ export class Menu extends Component {
       .then(response => response.json())
       .then(responseJson => {
         if (responseJson.success && responseJson.restaurant) {
+          console.log(responseJson.restaurant);
           let restaurant = responseJson.restaurant;
           this.setState({
             menu: restaurant.menu,
@@ -37,9 +39,22 @@ export class Menu extends Component {
       <div>
         <Nav />
         <div className="menu-view">
-          <p>Welcome to {this.state.restaurantName}</p>
-          <p>Your table is {this.state.tableNum}</p>
-          <p>Menu</p>
+          <h1 className="welcome">Welcome to {this.state.restaurantName}!</h1>
+          {/* <div className="table-sign">Your table is {this.state.tableNum}</div> */}
+          <div className="menu-sign">Menu</div>
+
+          <div className="menu-list">
+            {this.state.menu.map(item => (
+              <FoodItem
+                key={item._id}
+                name={item.name}
+                description={item.description}
+                price={item.price}
+              />
+            ))}
+          </div>
+
+          <button className="place-order-btn">Place Order</button>
         </div>
       </div>
     );

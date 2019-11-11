@@ -114,12 +114,10 @@ code {
 .qr-square {
   width: 300px;
   height: 300px;
-  text-align: center;
   margin-left: 40%;
 }
 
 .qr-button {
-  margin-left: 45%;
   margin-top: 2%;
   width: 10%;
   border: none;
@@ -135,7 +133,6 @@ code {
 }
 
 .home-order-button {
-  margin-left: 45%;
   margin-top: 2%;
   margin-bottom: 3%;
   width: 10%;
@@ -154,4 +151,85 @@ code {
 .menu-view {
   text-align: center;
   color: #494949;
+  margin-top: 3%;
+}
+
+.home {
+  color: #494949;
+  font-weight: bold;
+  margin-top: 1.2%;
+}
+
+.homeView {
+  text-align: center;
+}
+
+.welcome {
+  font-weight: bold;
+  color: #494949;
+}
+
+.table-sign {
+  /* margin-top: 1%; */
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #837e7e;
+}
+
+.menu-sign {
+  font-size: 3em;
+  font-weight: bold;
+  /* color: #837e7e; */
+  color: #7b977a;
+  font-style: italic;
+  margin-bottom: 1.5%;
+}
+
+.item {
+  border: thin solid;
+  border-color: #ecedef;
+  /* border-color: #d0ebcf; */
+  width: 42%;
+  height: 5.9em;
+  margin-bottom: 2%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.item-name {
+  margin-left: 0.8%;
+  margin-top: 0.8%;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.item-description {
+  margin-left: 0.8%;
+  margin-top: 0.9%;
+  font-size: 0.9em;
+  font-style: italic;
+  color: #807e7e;
+}
+
+.item-price {
+  /* float: right;
+  margin-right: 1%; */
+  font-weight: bold;
+  margin-top: 0.9%;
+  color: #6dc06b;
+}
+
+.place-order-btn {
+  background-color: #4eb94b !important;
+  width: 10%;
+  color: white;
+  border: none;
+  font-weight: bold;
+  font-size: 18px;
+  outline: none;
+}
+
+.place-order-btn:hover {
+  background-color: #3b8e39 !important;
 }

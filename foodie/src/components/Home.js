@@ -71,24 +71,27 @@ export class Home extends Component {
     return (
       <div>
         <Nav />
-        {this.state.scanned ? (
-          <div>
-            <button className="home-order-button">ORDER</button>
+        <div className="homeView">
+          <h1 className="home">Table ordering made simple!</h1>
+          {this.state.scanned ? (
+            <div>
+              <button className="home-order-button">ORDER</button>
 
-            <div className="qr-square">
-              <QrReader
-                delay={this.state.delay}
-                onError={this.handleError}
-                onScan={this.handleScan}
-                style={{ width: "100%" }}
-              />
+              <div className="qr-square">
+                <QrReader
+                  delay={this.state.delay}
+                  onError={this.handleError}
+                  onScan={this.handleScan}
+                  style={{ width: "100%" }}
+                />
+              </div>
             </div>
-          </div>
-        ) : (
-          <button className="qr-button" onClick={this.qrShow.bind(this)}>
-            SCAN QR
-          </button>
-        )}
+          ) : (
+            <button className="qr-button" onClick={this.qrShow.bind(this)}>
+              SCAN QR
+            </button>
+          )}
+        </div>
       </div>
     );
   }
