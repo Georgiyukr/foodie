@@ -112,9 +112,10 @@ code {
 }
 
 .qr-square {
-  width: 300px;
-  height: 300px;
-  margin-left: 40%;
+  width: 21%;
+  height: 21%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .qr-button {
