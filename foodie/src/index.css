@@ -120,32 +120,30 @@ code {
 
 .qr-button {
   margin-top: 2%;
-  width: 10%;
+  width: 8%;
   border: none;
-  background-color: #1eaa1a;
+  background-color: #4eb94b;
   outline: none !important;
   color: white;
   font-weight: bold;
-  box-shadow: 0 0 4px #000;
 }
 
 .qr-button:hover {
   background-color: #3b8e39;
 }
 
-.home-order-button {
-  margin-top: 2%;
-  margin-bottom: 3%;
-  width: 10%;
+.orderMore-btn {
+  margin-top: 1.5%;
+  margin-bottom: 2%;
+  width: auto;
   border: none;
   outline: none !important;
   color: white;
   font-weight: bold;
-  background-color: #1eaa1a;
-  box-shadow: 0 0 4px #000;
+  background-color: #4eb94b;
 }
 
-.home-order-button:hover {
+.orderMore-btn:hover {
   background-color: #3b8e39;
 }
 
@@ -159,6 +157,7 @@ code {
   color: #494949;
   font-weight: bold;
   margin-top: 1.2%;
+  font-family: "Courier New", Courier, monospace;
 }
 
 .homeView {
@@ -172,7 +171,6 @@ code {
 }
 
 .table-sign {
-  /* margin-top: 1%; */
   font-size: 1.5em;
   font-weight: bold;
   color: #837e7e;
@@ -181,7 +179,7 @@ code {
 .menu-sign {
   font-size: 3em;
   font-weight: bold;
-  /* color: #837e7e; */
+
   color: #7b977a;
   font-style: italic;
   margin-bottom: 1.5%;
@@ -253,4 +251,62 @@ code {
   margin-right: auto;
   display: block;
   outline: none !important;
+}
+
+.order-display {
+  width: 40%;
+  /* border: thin solid;
+  border-color: #ecedef; */
+  margin-left: auto;
+  margin-right: auto;
+  height: auto;
+}
+
+.myorder-sign {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  color: #7b977a;
+  font-style: italic;
+}
+
+.pay-btn {
+  margin-top: 1.5%;
+  margin-bottom: 2%;
+  width: 7%;
+  border: none;
+  outline: none !important;
+  color: white;
+  font-weight: bold;
+  background-color: #1b5f12;
+  margin-left: 2%;
+}
+
+.pay-btn:hover {
+  background-color: #3b8e39;
+}
+
+.order-display-item {
+  display: inline-block;
+}
+
+.ordered-price {
+  margin-left: 3%;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #279923;
+}
+
+.ordered-name {
+  font-size: 1.2em;
+  font-weight: bold;
+  font-family: "Courier New", Courier, monospace;
+  color: #494949;
+}
+
+.total {
+  font-size: 2em;
+  font-weight: bold;
+  font-family: "Courier New", Courier, monospace;
+  color: #494949;
 }

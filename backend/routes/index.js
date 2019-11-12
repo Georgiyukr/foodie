@@ -66,5 +66,69 @@ module.exports = function(hash) {
     });
   });
 
+  //add order for the particular table; add additional order
+  router.post("/placeorder", (req, res) => {
+    let restaurantUsername = req.body.restaurantUsername;
+    let order = req.body.order;
+    let tableNum = req.body.tableNum;
+    Restaurant.findOne({ restaurantUsername: restaurantUsername }, function(
+      err,
+      restaurant
+    ) {
+      if (err) {
+        console.log("ERROR IN POST /placeorder", err);
+      } else {
+        for (let i = 0; i < restaurant.currentTableOrders.length; i++) {
+          let currentOrder = restaurant.currentTableOrders[i];
+          if (currentOrder.tableNum === tableNum) {
+            restaurant.currentTableOrders.splice(i, 1);
+          }
+        }
+        restaurant.currentTableOrders.push({
+          tableNum: tableNum,
+          order: order
+        });
+
+        restaurant
+          .save()
+          .then(response => {
+            res.json({ success: true, restaurant: restaurant });
+          })
+          .catch(error => {
+            console.log("ERROR IN SAVING Placing Order", error);
+          });
+      }
+    });
+  });
+
+  // delete an order from the current customer order list
+  router.post("/deletecustomer", (req, res) => {
+    let restaurantUsername = req.body.restaurantUsername;
+    let tableNum = req.body.tableNum;
+    Restaurant.findOne({ restaurantUsername: restaurantUsername }, function(
+      err,
+      restaurant
+    ) {
+      if (err) {
+        console.log("ERROR IN POST /deletecustomer", err);
+      } else {
+        for (let i = 0; i < restaurant.currentTableOrders.length; i++) {
+          let currentOrder = restaurant.currentTableOrders[i];
+          if (currentOrder.tableNum === tableNum) {
+            restaurant.currentTableOrders.splice(i, 1);
+          }
+        }
+        restaurant
+          .save()
+          .then(response => {
+            res.json({ success: true, restaurant: restaurant });
+          })
+          .catch(error => {
+            console.log("ERROR IN DELETING deletecustomer", error);
+          });
+      }
+    });
+  });
+
   return router;
 };

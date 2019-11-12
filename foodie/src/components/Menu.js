@@ -33,6 +33,10 @@ export class Menu extends Component {
       .catch(err => {
         console.log("ERROR in FETCH /RESTAURANT", err);
       });
+
+    if (this.props.location.state.hasOwnProperty("order")) {
+      this.order = this.props.location.state.order;
+    }
   }
 
   // add or remove a selected item to/from order
@@ -49,7 +53,9 @@ export class Menu extends Component {
     this.props.history.push({
       pathname: "/",
       state: {
-        order: this.order
+        order: this.order,
+        restaurantUsername: this.state.restaurantUsername,
+        tableNum: this.state.tableNum
       }
     });
   }

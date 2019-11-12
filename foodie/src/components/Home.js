@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Nav from "./Nav";
 import QrReader from "react-qr-reader";
+import OrderedItem from "./OrderedItem";
 
 export class Home extends Component {
   constructor(props) {
@@ -15,7 +16,8 @@ export class Home extends Component {
         username: ""
       },
       scan: false,
-      order: {}
+      order: {},
+      total: Number
     };
     this.handleScan = this.handleScan.bind(this);
   }
@@ -37,7 +39,17 @@ export class Home extends Component {
     }
 
     if (this.props.location.state) {
-      this.setState({ order: this.props.location.state.order });
+      let total = 0;
+      Object.entries(this.props.location.state.order).map(([key, value]) => {
+        total += Number(value);
+        console.log("TOTAL", total);
+      });
+      this.setState({
+        order: this.props.location.state.order,
+        total: total,
+        restaurantUsername: this.props.location.state.restaurantUsername,
+        tableNum: this.props.location.state.tableNum
+      });
     }
   }
 
@@ -59,6 +71,17 @@ export class Home extends Component {
     }
   }
 
+  orderMore() {
+    this.props.history.push({
+      pathname: "/menu",
+      state: {
+        restaurantUsername: this.state.restaurantUsername,
+        tableNum: this.state.tableNum,
+        order: this.state.order
+      }
+    });
+  }
+
   handleError(err) {
     console.error(err);
   }
@@ -69,7 +92,7 @@ export class Home extends Component {
 
   render() {
     let _ = require("underscore");
-    console.log("Order", this.state.order);
+    console.log("Order", Object.keys(this.state.order));
     return (
       <div>
         <Nav />
@@ -78,11 +101,21 @@ export class Home extends Component {
 
           {_.isEmpty(this.state.order) === false ? (
             <div>
-              <button className="orderMore-btn">Order</button>
-              <div>
-                My Order
-                <button className="pay-btn">Pay</button>
+              <h1 className="myorder-sign">My Order</h1>
+
+              <div className="order-display">
+                {Object.entries(this.state.order).map(([key, value]) => (
+                  <OrderedItem name={key} price={value} />
+                ))}
               </div>
+              <div className="total">Total: ${this.state.total}</div>
+              <button
+                className="orderMore-btn"
+                onClick={this.orderMore.bind(this)}
+              >
+                Order More
+              </button>
+              <button className="pay-btn">Pay</button>
             </div>
           ) : this.state.scan ? (
             <div>
@@ -108,26 +141,3 @@ export class Home extends Component {
 }
 
 export default Home;
-
-//goes between Nav and last </div>
-{
-  /* <div className="homeView">
-  <h1 className="home">Table ordering made simple!</h1>
-  {this.state.scan ? (
-    <div>
-      <div className="qr-square">
-        <QrReader
-          delay={this.state.delay}
-          onError={this.handleError}
-          onScan={this.handleScan}
-          style={{ width: "100%" }}
-        />
-      </div>
-    </div>
-  ) : (
-      <button className="qr-button" onClick={this.qrShow.bind(this)}>
-        SCAN QR
-            </button>
-    )}
-</div> */
-}
