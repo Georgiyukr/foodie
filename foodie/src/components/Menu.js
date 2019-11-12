@@ -35,11 +35,16 @@ export class Menu extends Component {
       });
   }
 
+  // add or remove a selected item to/from order
   itemSelect(name, price) {
-    console.log(name, price);
-    this.order[name] = price;
+    if (!this.order.hasOwnProperty(`${name}`)) {
+      this.order[name] = price;
+    } else {
+      delete this.order[name];
+    }
   }
 
+  //place an order for the restaurant
   placeOrder() {
     this.props.history.push({
       pathname: "/",

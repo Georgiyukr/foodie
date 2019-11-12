@@ -167,6 +167,7 @@ code {
 .welcome {
   font-weight: bold;
   color: #494949;
+  font-family: "Courier New", Courier, monospace;
 }
 
 .table-sign {
@@ -183,14 +184,15 @@ code {
   color: #7b977a;
   font-style: italic;
   margin-bottom: 1.5%;
+  font-family: "Courier New", Courier, monospace;
 }
 
 .item {
   border: thin solid;
   border-color: #ecedef;
-  /* border-color: #ecedef; */
-  width: 42%;
-  height: 5.9em;
+
+  width: 40%;
+  height: auto;
   margin-bottom: 2%;
   text-align: center;
   margin-left: auto;
@@ -215,8 +217,6 @@ code {
 }
 
 .item-price {
-  /* float: right;
-  margin-right: 1%; */
   font-weight: bold;
   margin-top: 0.9%;
   color: #6dc06b;
@@ -224,7 +224,7 @@ code {
 
 .place-order-btn {
   background-color: #4eb94b !important;
-  width: 10%;
+  width: auto;
   color: white;
   border: none;
   font-weight: bold;
@@ -238,4 +238,18 @@ code {
 
 .item:hover {
   background-color: #f9fafc;
+}
+
+.selected-item {
+  border: thin solid;
+  border-color: #ecedef;
+  background-color: #f1f7ef;
+  width: 40%;
+  height: auto;
+  margin-bottom: 2%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  outline: none !important;
 }
