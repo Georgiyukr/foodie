@@ -1,7 +1,7 @@
 # foodie
 Web application to assist consumers and restaurants with table side ordering and payment
 
-1. In terminal navigate to directories backend and foodie; run npm install
+1. In terminal navigate to directories backend and foodie; run npm install; sudo npm install -g nodemon --save;
 
 2. Set up MongoDB following this tutorial: https://docs.atlas.mongodb.com/getting-started/
 
