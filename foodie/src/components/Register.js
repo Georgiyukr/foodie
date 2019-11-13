@@ -84,23 +84,27 @@ export class Register extends Component {
     let submit;
     if (this.state.submitHover) {
       submit = {
-        backgroundColor: "#F3F3F3",
-        width: "7%",
+        backgroundColor: "#3b8e39",
+        // width: "7%",
         color: "white",
         border: "none",
         fontWeight: "bold",
         fontSize: "18px",
-        outline: "none"
+        outline: "none",
+        paddingLeft: "20px",
+        paddingRight: "20px"
       };
     } else {
       submit = {
         backgroundColor: "#4EB94B",
-        width: "7%",
+        // width: "7%",
         color: "white",
         border: "none",
         fontWeight: "bold",
         fontSize: 18,
-        outline: "none"
+        outline: "none",
+        paddingLeft: "20px",
+        paddingRight: "20px"
       };
     }
 
@@ -131,7 +135,7 @@ export class Register extends Component {
                 type="text"
                 value={this.state.name}
                 onChange={event => this.handleChange("name", event)}
-                placeholder="enter your name ..."
+                placeholder="your name ..."
               />
             </p>
             {/* <p>Username:</p> */}
@@ -141,7 +145,7 @@ export class Register extends Component {
                 type="text"
                 value={this.state.username}
                 onChange={event => this.handleChange("username", event)}
-                placeholder="enter your username ..."
+                placeholder="your username ..."
               />
             </p>
             {/* <p>Password:</p> */}
@@ -151,7 +155,7 @@ export class Register extends Component {
                 type="password"
                 value={this.state.password}
                 onChange={event => this.handleChange("password", event)}
-                placeholder="enter your password ..."
+                placeholder="your password ..."
               />
             </p>
             <p>
@@ -160,7 +164,7 @@ export class Register extends Component {
                 type="text"
                 value={this.state.creditCardNumber}
                 onChange={event => this.handleChange("creditCardNumber", event)}
-                placeholder="enter your credit card number ..."
+                placeholder="your card number ..."
               />
             </p>
             <p>
@@ -169,7 +173,7 @@ export class Register extends Component {
                 type="text"
                 value={this.state.securityCode}
                 onChange={event => this.handleChange("securityCode", event)}
-                placeholder="enter your security number ..."
+                placeholder="your security number ..."
               />
             </p>
             <p>
@@ -227,12 +231,14 @@ const styles = {
     marginBottom: "2%"
   },
   input: {
-    width: "19%",
+    width: "auto",
     border: "none",
     borderBottom: "solid",
     borderColor: "#4EB94B",
     outline: "none",
-    marginBottom: "0.8%"
+    marginBottom: "0.8%",
+    paddingLeft: "10px",
+    paddingRight: "90px"
   }
 };
 

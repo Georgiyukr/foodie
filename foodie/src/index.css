@@ -22,7 +22,7 @@ code {
 .logo {
   color: white;
   font-weight: bold;
-  font-size: 35px;
+  font-size: 1.8em;
   margin-left: 50px;
 }
 
@@ -30,6 +30,9 @@ code {
   text-align: center;
   margin-top: 3%;
   display: block;
+  /* width: 30%; */
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .loginTitle {
@@ -38,22 +41,26 @@ code {
 }
 
 .input {
-  width: 19%;
+  /* width: 19%; */
   border: none;
   border-bottom: solid;
   border-color: #4eb94b;
   outline: none;
   margin-bottom: 0.8%;
+  padding-left: 10px;
+  padding-right: 90px;
 }
 
 .login-submit {
   background-color: #4eb94b;
-  width: 7%;
+  /* width: 7%; */
   color: white;
   border: none;
   font-weight: bold;
   font-size: 18px;
   outline: none;
+  padding-right: 20px;
+  padding-left: 20px;
 }
 
 .login-submit:hover {
@@ -64,6 +71,12 @@ code {
   background-color: #0c5f09 !important;
   text-align: center;
   outline: none !important;
+  color: white;
+  border: none;
+  font-weight: bold;
+  font-size: 18px;
+  padding-right: 15px;
+  padding-left: 15px;
 }
 
 .login-to-register:hover {
@@ -112,20 +125,23 @@ code {
 }
 
 .qr-square {
-  width: 21%;
-  height: 21%;
+  width: 300px;
+  height: 300px;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 50px;
 }
 
 .qr-button {
   margin-top: 2%;
-  width: 8%;
+  /* width: 8%; */
   border: none;
   background-color: #4eb94b;
   outline: none !important;
   color: white;
   font-weight: bold;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .qr-button:hover {
@@ -205,6 +221,8 @@ code {
   margin-top: 0.8%;
   font-weight: bold;
   font-size: 1.2em;
+  font-family: "Courier New", Courier, monospace;
+  color: #494949;
 }
 
 .item-description {
@@ -213,12 +231,14 @@ code {
   font-size: 0.9em;
   font-style: italic;
   color: #807e7e;
+  font-family: "Courier New", Courier, monospace;
 }
 
 .item-price {
   font-weight: bold;
   margin-top: 0.9%;
   color: #6dc06b;
+  font-family: "Courier New", Courier, monospace;
 }
 
 .place-order-btn {
@@ -229,6 +249,8 @@ code {
   font-weight: bold;
   font-size: 18px;
   outline: none !important;
+  margin-top: 10px;
+  margin-bottom: 20px;
 }
 
 .place-order-btn:hover {
@@ -272,13 +294,14 @@ code {
 .pay-btn {
   margin-top: 1.5%;
   margin-bottom: 2%;
-  width: 7%;
+  padding-left: 40px;
+  padding-right: 40px;
   border: none;
   outline: none !important;
   color: white;
   font-weight: bold;
   background-color: #1b5f12;
-  margin-left: 2%;
+  margin-left: 10px;
 }
 
 .pay-btn:hover {
@@ -368,4 +391,30 @@ code {
 
 .pay-date {
   text-align: center;
+}
+
+.image {
+  width: 400px;
+  height: 250px;
+  margin-top: 100px;
+}
+
+.images {
+  margin-top: 50px;
+}
+
+.image2 {
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.quote {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  margin-top: 70px;
+  font-size: 30px;
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 80px;
 }

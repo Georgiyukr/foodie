@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import Nav from "./Nav";
 import QrReader from "react-qr-reader";
 import OrderedItem from "./OrderedItem";
+import pic1 from "./pics/res1.jpg";
+import pic2 from "./pics/res2.png";
+import pic3 from "./pics/res3.jpeg";
 
 export class Home extends Component {
   constructor(props) {
@@ -180,6 +183,11 @@ export class Home extends Component {
               <button className="pay-btn" onClick={this.pay.bind(this)}>
                 Pay
               </button>
+              <div className="images">
+                <img className="image image1" src={pic2} />
+                <img className="image image2" src={pic1} />
+                <img className="image image3" src={pic3} />
+              </div>
             </div>
           ) : this.state.scan ? (
             <div>
@@ -191,12 +199,27 @@ export class Home extends Component {
                   style={{ width: "100%" }}
                 />
               </div>
-              Maybe Pictures
+              <div className="images">
+                <img className="image image1" src={pic2} alt="image-2" />
+                <img className="image image2" src={pic1} alt="image-1" />
+                <img className="image image3" src={pic3} alt="image-3" />
+              </div>
             </div>
           ) : (
-            <button className="qr-button" onClick={this.qrShow.bind(this)}>
-              SCAN QR
-            </button>
+            <div>
+              <button className="qr-button" onClick={this.qrShow.bind(this)}>
+                SCAN QR
+              </button>
+              <p className="quote">
+                When you wait for a waiter in a restaurant, doesn't that make
+                you the waiter?
+              </p>
+              <div className="images">
+                <img className="image image1" src={pic2} alt="image-2" />
+                <img className="image image2" src={pic1} alt="image-1" />
+                <img className="image image3" src={pic3} alt="image-3" />
+              </div>
+            </div>
           )}
         </div>
       </div>

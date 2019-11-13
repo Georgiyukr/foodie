@@ -95,7 +95,7 @@ export class Login extends Component {
           </form>
           <button
             onClick={this.onClick.bind(this)}
-            className="login-to-register login-submit"
+            className="login-to-register"
           >
             Register
           </button>
