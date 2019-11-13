@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 import Nav from "./Nav";
 export class Success extends Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     return (
       <div>

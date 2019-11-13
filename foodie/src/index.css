@@ -327,3 +327,45 @@ code {
   font-size: 1.5em;
   color: #7b977a;
 }
+
+.payments-view {
+  text-align: center;
+  margin-top: 2%;
+}
+
+.payment-sign {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  color: #494949;
+  font-size: 2.5em;
+  margin-bottom: 50px;
+}
+
+.payment-list {
+  width: 40%;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  color: #494949;
+}
+
+.pay-name {
+  float: left;
+}
+
+.pay-total {
+  float: right;
+  margin-right: 15px;
+}
+
+.payment-item {
+  border-bottom: solid;
+  margin-top: 4%;
+  padding-bottom: 7px;
+  border-color: #4eb94b;
+}
+
+.pay-date {
+  text-align: center;
+}

@@ -156,5 +156,18 @@ module.exports = function(hash) {
     });
   });
 
+  // get payment history from User db
+  router.get("/history/:username", (req, res) => {
+    let username = req.params.username;
+
+    User.findOne({ username: username }, function(err, user) {
+      if (err) {
+        console.log("ERROR IN GET /HISTORY", err);
+      } else {
+        res.json({ success: true, payments: user.payments });
+      }
+    });
+  });
+
   return router;
 };
