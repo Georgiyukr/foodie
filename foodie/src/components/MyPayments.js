@@ -11,8 +11,9 @@ export class MyPayments extends Component {
     return (
       <div>
         <Nav />
-        {/* loggedIn={this.state.loggedIn} */}
-        <p1>MyPayments</p1>
+        <div className="payments-view">
+          <div>My Payments History</div>
+        </div>
       </div>
     );
   }

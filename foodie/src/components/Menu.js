@@ -48,16 +48,39 @@ export class Menu extends Component {
     }
   }
 
-  //place an order for the restaurant
+  //place an order for the restaurant DB, navigate Home
   placeOrder() {
-    this.props.history.push({
-      pathname: "/",
-      state: {
-        order: this.order,
+    fetch("http://localhost:8080/placeorder", {
+      method: "POST",
+      mode: "cors",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      credentials: "include",
+      redirect: "follow",
+      body: JSON.stringify({
         restaurantUsername: this.state.restaurantUsername,
-        tableNum: this.state.tableNum
-      }
-    });
+        tableNum: this.state.tableNum,
+        order: this.order
+      })
+    })
+      .then(response => response.json())
+      .then(responseJson => {
+        if (responseJson.success === true && responseJson.restaurant) {
+          this.props.history.push({
+            pathname: "/",
+            state: {
+              order: this.order,
+              restaurantUsername: this.state.restaurantUsername,
+              tableNum: this.state.tableNum,
+              restaurantName: this.state.restaurantName
+            }
+          });
+        }
+      })
+      .catch(err => {
+        console.log("ERROR in FETCH /REGISTER", err);
+      });
   }
 
   render() {

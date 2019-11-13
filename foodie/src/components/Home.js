@@ -9,6 +9,7 @@ export class Home extends Component {
     this.state = {
       delay: 300,
       restaurantUsername: "",
+      restaurantName: "",
       tableNum: "",
       user: {
         name: "",
@@ -25,13 +26,14 @@ export class Home extends Component {
   //redirect to login page if user is not logged in
   componentDidMount() {
     const user = window.localStorage.getItem("user");
-    console.log(user);
+    let json = JSON.stringify(eval("(" + user + ")"));
+    let parsed = JSON.parse(json);
     if (user) {
       this.setState({
         user: {
-          name: user.name,
-          userid: user.userid,
-          username: user.username
+          name: parsed.name,
+          userid: parsed.userid,
+          username: parsed.username
         }
       });
     } else {
@@ -48,7 +50,8 @@ export class Home extends Component {
         order: this.props.location.state.order,
         total: total,
         restaurantUsername: this.props.location.state.restaurantUsername,
-        tableNum: this.props.location.state.tableNum
+        tableNum: this.props.location.state.tableNum,
+        restaurantName: this.props.location.state.restaurantName
       });
     }
   }
@@ -90,9 +93,68 @@ export class Home extends Component {
     this.setState({ scan: true });
   }
 
+  // submit payment to the user payment dB
+  pay() {
+    fetch("http://localhost:8080/pay", {
+      method: "POST",
+      mode: "cors",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      credentials: "include",
+      redirect: "follow",
+      body: JSON.stringify({
+        username: this.state.user.username,
+        total: this.state.total,
+        restaurantName: this.state.restaurantName
+      })
+    })
+      .then(response => response.json())
+      .then(responseJson => {
+        if (responseJson.success === true && responseJson.user) {
+          this.deleteOrder();
+        }
+      })
+      .catch(err => {
+        console.log("ERROR in FETCH /PAY", err);
+      });
+  }
+
+  // delete order from the restaurant DB
+  deleteOrder() {
+    fetch("http://localhost:8080/deletecustomer", {
+      method: "POST",
+      mode: "cors",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      credentials: "include",
+      redirect: "follow",
+      body: JSON.stringify({
+        restaurantUsername: this.state.restaurantUsername,
+        tableNum: this.state.tableNum
+      })
+    })
+      .then(response => response.json())
+      .then(responseJson => {
+        if (responseJson.success === true && responseJson.restaurant) {
+          console.log("HERE");
+          this.props.history.push({
+            pathname: "/success",
+            state: {
+              restaurantName: this.state.restaurantName
+            }
+          });
+        }
+      })
+      .catch(err => {
+        console.log("ERROR in FETCH /DELETECUSTOMER", err);
+      });
+  }
+
   render() {
     let _ = require("underscore");
-    console.log("Order", Object.keys(this.state.order));
+    console.log("USERNAME", this.state.user);
     return (
       <div>
         <Nav />
@@ -115,7 +177,9 @@ export class Home extends Component {
               >
                 Order More
               </button>
-              <button className="pay-btn">Pay</button>
+              <button className="pay-btn" onClick={this.pay.bind(this)}>
+                Pay
+              </button>
             </div>
           ) : this.state.scan ? (
             <div>

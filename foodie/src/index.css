@@ -310,3 +310,20 @@ code {
   font-family: "Courier New", Courier, monospace;
   color: #494949;
 }
+
+.success {
+  text-align: center;
+  margin-top: 2%;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+}
+
+.payment-success {
+  font-size: 2.5em;
+  color: #494949;
+}
+
+.see-you {
+  font-size: 1.5em;
+  color: #7b977a;
+}

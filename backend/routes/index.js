@@ -129,6 +129,32 @@ module.exports = function(hash) {
       }
     });
   });
+  //add payment to the user payments db
+  router.post("/pay", function(req, res) {
+    let username = req.body.username;
+    let restaurantName = req.body.restaurantName;
+    let total = req.body.total;
+    console.log("USERNAME", restaurantName);
+    User.findOne({ username: username }, function(err, user) {
+      if (err) {
+        console.log("ERROR IN POST /pay", err);
+      } else {
+        user.payments.push({
+          restaurantName: restaurantName,
+          date: new Date(),
+          total: total
+        });
+        user
+          .save()
+          .then(response => {
+            res.json({ success: true, user: user });
+          })
+          .catch(error => {
+            console.log("ERROR IN POST /Pay", error);
+          });
+      }
+    });
+  });
 
   return router;
 };

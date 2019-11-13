@@ -7,6 +7,8 @@ import Register from "./components/Register";
 import Login from "./components/Login";
 import MyPayments from "./components/MyPayments";
 import Menu from "./components/Menu";
+import Success from "./components/Success";
+
 function App() {
   return (
     <Router>
@@ -18,6 +20,7 @@ function App() {
           <Route path="/register" exact component={Register} />
           <Route path="/payment-history" exact component={MyPayments} />
           <Route path="/menu" exact component={Menu} />
+          <Route path="/success" exact component={Success} />
         </Switch>
       </div>
     </Router>

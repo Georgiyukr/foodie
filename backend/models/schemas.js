@@ -23,9 +23,6 @@ let userSchema = new Schema({
     type: String,
     required: true
   },
-  order: {
-    type: Array
-  },
   currentVisit: {
     type: Object
   },
